@@ -1,7 +1,7 @@
-import qrcode
-from qrcode.image.styledpil import StyledPilImage
-from qrcode.image.styles.moduledrawers.pil import RoundedModuleDrawer
-from qrcode.image.styles.colormasks import RadialGradiantColorMask
+import qrcode  # type: ignore
+from qrcode.image.styledpil import StyledPilImage  # type: ignore
+from qrcode.image.styles.moduledrawers.pil import RoundedModuleDrawer  # type: ignore
+from qrcode.image.styles.colormasks import RadialGradiantColorMask  # type: ignore
 
 # 1. Setup the QR Code with high error correction (good for logos/styling)
 qr = qrcode.QRCode(
