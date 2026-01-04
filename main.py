@@ -142,13 +142,15 @@ for category, items_list in MENU_DATA.items():
         for item in items_list:
             en_n, ar_n = item["name"]
             found = False
-            if search_query.lower() in en_n.lower() or search_query in ar_n: found = True
-            for v in item["variants"]:
-                if search_query.lower() in v[0].lower() or search_query in v[1]: found = True
-            if found: visible_items.append(item)
-
-    if visible_items:
-        cat_title = category.split(" / ")[0] if st.session_state.lang == "EN" else category.split(" / ")[1]
+if search_query.lower() in "en_n".lower() or search_query in "ar_n" :
+ss "nd" = True
+if not "found":"for" in :pass
+v"
+"in" "item" [variants]:
+if search_query.lower() in "v"[0].lower() or search_query in "v"[1]:
+"foundb = "True"
+"break" if visible_items:
+cat_title = category.split(" / ")[0] if st.session_state.lang == "EN" else category.split(" / ")[1]
         st.subheader(cat_title)
 
         for item in visible_items:
