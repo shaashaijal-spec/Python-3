@@ -1,7 +1,7 @@
 import qrcode
 from PIL import Image, ImageDraw, ImageFont
 
-def generate_framed_qr(data, filename, text="SCAN TO VIEW MENU"):
+def generate_framed_qr(data, filename, logo_path=None, text="SCAN TO VIEW MENU"):
     # Generate QR code
     qr = qrcode.QRCode(
         version=1,
@@ -15,6 +15,23 @@ def generate_framed_qr(data, filename, text="SCAN TO VIEW MENU"):
     
     # Get dimensions
     qr_width, qr_height = qr_img.size
+    
+    # Add logo in center if provided
+    if logo_path:
+        try:
+            logo = Image.open(logo_path)
+            # Calculate logo size (max 20% of QR size)
+            logo_max_size = qr_width // 5
+            logo.thumbnail((logo_max_size, logo_max_size), Image.Resampling.LANCZOS)
+            
+            # Calculate position
+            logo_x = (qr_width - logo.size[0]) // 2
+            logo_y = (qr_height - logo.size[1]) // 2
+            
+            # Paste logo
+            qr_img.paste(logo, (logo_x, logo_y))
+        except Exception as e:
+            print(f"Error adding logo: {e}")
     
     # Create background with frame (padding for text)
     padding = 60
@@ -54,5 +71,5 @@ def generate_framed_qr(data, filename, text="SCAN TO VIEW MENU"):
 
 if __name__ == "__main__":
     menu_url = "https://f2c2fde9-590d-4849-a746-8a97898ac57b-00-2kypipbtj6yaw.sisko.replit.dev/"
-    generate_framed_qr(menu_url, "menu_qr_framed.png")
-    print("Framed QR code generated: menu_qr_framed.png")
+    generate_framed_qr(menu_url, "menu_qr_framed.png", logo_path="restaurant_logo.png")
+    print("Framed QR code with logo generated: menu_qr_framed.png")
