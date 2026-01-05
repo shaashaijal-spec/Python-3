@@ -3,29 +3,8 @@ import os
 import sys
 from streamlit.web import cli as stcli
 
-# ================= AUTO-FIX RUNNER =================
-# This trick forces the Green Button to work!
-if __name__ == '__main__':
-    try:
-        from streamlit.runtime.scriptrunner import get_script_run_ctx
-        if not get_script_run_ctx():
-            print("Restarting as Streamlit app...")
-            sys.argv = ["streamlit", "run", __file__]
-            sys.exit(stcli.main())
-    except ImportError:
-        pass
-
 # ================= 1. CONFIG & DATA =================
 st.set_page_config(page_title="Menu", layout="centered")
-
-# Force Dark Theme Config
-if not os.path.exists(".streamlit"):
-    try:
-        os.makedirs(".streamlit")
-        with open(".streamlit/config.toml", "w") as f:
-            f.write('[theme]\nbase="dark"\nprimaryColor="#4CAF50"')
-    except:
-        pass
 
 # Shop Data
 SHOP_EN = "SHAWARMA & BURGERLAK"
