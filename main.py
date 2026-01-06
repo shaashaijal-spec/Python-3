@@ -9,6 +9,7 @@ SHOP_EN = "SHAWARMA & BURGERLAK"
 SHOP_AR = "شاورما و برجرلك"
 PHONE = "+966 50 518 9381"
 LOGO_FILE = "logo.png"
+QR_CODE_FILE = "menu_qr_framed.png"
 
 MENU_DATA = {
     "🌯 Shawarma / شاورما": [
@@ -59,6 +60,16 @@ st.markdown("""
 
 if 'lang' not in st.session_state:
     st.session_state.lang = "EN"
+
+# ================= 2. SIDEBAR (QR CODE) =================
+with st.sidebar:
+    st.markdown("### 📱 Scan to View Menu")
+    if os.path.exists(QR_CODE_FILE):
+        st.image(QR_CODE_FILE, use_container_width=True)
+    else:
+        st.warning("QR Code not found. Run 'Generate QR Code' workflow.")
+    st.divider()
+    st.markdown(f"**📞 Contact:** {PHONE}")
 
 # ================= 3. APP LAYOUT =================
 # Logo & Title
