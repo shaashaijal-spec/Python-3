@@ -7,3 +7,11 @@ address = "0.0.0.0"
 headless = true
 enableCORS = false
 enableXsrfProtection = false
+enableWebsocketCompression = false
+
+[theme]
+primaryColor = "#4CAF50"
+backgroundColor = "#111111"
+secondaryBackgroundColor = "#222222"
+textColor = "#FFFFFF"
+font = "sans serif"
