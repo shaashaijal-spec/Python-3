@@ -1,7 +1,5 @@
 import streamlit as st
 import os
-import sys
-from streamlit.web import cli as stcli
 
 # ================= 1. CONFIG & DATA =================
 st.set_page_config(page_title="Menu", layout="centered")
