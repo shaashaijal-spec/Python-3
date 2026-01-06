@@ -5,7 +5,7 @@ gatherUsageStats = false
 port = 5000
 address = "0.0.0.0"
 headless = true
-enableCORS = false
+enableCORS = true
 enableXsrfProtection = false
 enableWebsocketCompression = false
 
