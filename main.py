@@ -64,14 +64,14 @@ if 'lang' not in st.session_state:
 # Logo & Title
 try:
     c1, c2, c3 = st.columns([1,2,1])
-    with c2: st.image(LOGO_FILE, use_container_width=True)
+    with c2: st.image(LOGO_FILE, width='stretch')
 except: pass
 
 st.markdown(f"<h2 style='text-align: center; margin:0;'>{SHOP_EN}</h2>", unsafe_allow_html=True)
 st.markdown(f"<h3 style='text-align: center; color: #BBB; margin:0;'>{SHOP_AR}</h3>", unsafe_allow_html=True)
 
 # Language Button
-if st.button("🔄 العربية / English", use_container_width=True):
+if st.button("🔄 العربية / English", width='stretch'):
     st.session_state.lang = "AR" if st.session_state.lang == "EN" else "EN"
     st.rerun()
 
