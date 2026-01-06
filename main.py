@@ -123,17 +123,17 @@ for category, items_list in MENU_DATA.items():
                     c_info, c_price = st.columns([3, 1])
                     with c_info:
                         st.markdown(f"**{main_txt}**")
-                        st.markdown(f"<div class='caption-text'>{sub_txt} • 🔥 {cal}</div>", unsafe_allow_html=True)
+                        st.markdown(f"<div class='caption-text'>{sub_txt} • 🔥 {cal} kcal</div>", unsafe_allow_html=True)
                     with c_price:
-                        st.markdown(f"<div class='base-price'>{base_price}</div>", unsafe_allow_html=True)
+                        st.markdown(f"<div style='text-align: right;' class='base-price'>{base_price} <span style='font-size: 0.8em; color: gray;'>SAR</span></div>", unsafe_allow_html=True)
             else:
                 with st.expander(f"{main_txt} ... {base_price} SAR"):
-                    st.markdown(f"<div class='caption-text'>{sub_txt} • 🔥 {cal}</div>", unsafe_allow_html=True)
-                    st.markdown(f"<div class='variant-row'><span>Normal</span><span class='variant-price'>{base_price}</span></div>", unsafe_allow_html=True)
+                    st.markdown(f"<div class='caption-text'>{sub_txt} • 🔥 {cal} kcal</div>", unsafe_allow_html=True)
+                    st.markdown(f"<div class='variant-row'><span>Normal / عادي</span><span class='variant-price'>{base_price} SAR</span></div>", unsafe_allow_html=True)
                     for v in variants:
                         v_en, v_ar, v_p = v
-                        v_name = v_en if st.session_state.lang == "EN" else v_ar
-                        st.markdown(f"<div class='variant-row'><span>{v_name}</span><span class='variant-price'>{v_p}</span></div>", unsafe_allow_html=True)
+                        v_name = f"{v_en} / {v_ar}"
+                        st.markdown(f"<div class='variant-row'><span>{v_name}</span><span class='variant-price'>{v_p} SAR</span></div>", unsafe_allow_html=True)
 
 st.divider()
 st.caption("Made for Shawarma & Burgerluk")
